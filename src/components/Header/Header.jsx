@@ -18,7 +18,8 @@ const HeaderStyled = styled.header`
   justify-content: center;
   position: fixed;
   background-color: ${colors.blue};
-  width: calc(100vw - 76px);
+  padding: 0 8px;
+  width: calc(100vw - 91.5px);
 `
 
 const HeaderInnerContainer = styled.div`
@@ -49,11 +50,8 @@ const MenuLink = (props) => {
   const { children, goto } = props
 
   const handleMenuLink = () => {
-    window.scroll({
-        top: findPosition(document.getElementById(goto)),
-        behavior: 'smooth'
-      }
-    )
+    const element = document.getElementById(goto)
+    element?.scrollIntoView({behavior: 'smooth'})
   }
 
   return (
