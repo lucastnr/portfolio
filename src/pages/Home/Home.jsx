@@ -67,7 +67,7 @@ const Home = () => {
   return (
     <HomePage id='home-page'>
       <LeftContainer>
-          <Font css={WelcomeCss}>Bem-Vindo</Font>
+          <Font css={WelcomeCss}>Bem-vindo</Font>
         <BlocksContainer>
           <Font css={ImCss}>Sou</Font>
           <BlockColor color={colors.yellow}>
