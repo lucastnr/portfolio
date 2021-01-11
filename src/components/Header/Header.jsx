@@ -3,16 +3,6 @@ import styled, { css } from 'styled-components'
 import Font from '../Font/Font'
 import colors from '../../styles/colors'
 
-function findPosition(obj) { 
-  var currenttop = 0; 
-  if (obj.offsetParent) { 
-      do { 
-          currenttop += obj.offsetTop; 
-      } while ((obj = obj.offsetParent)); 
-      return [currenttop]; 
-  } 
-} 
-
 const HeaderStyled = styled.header`
   display: flex;
   justify-content: center;
