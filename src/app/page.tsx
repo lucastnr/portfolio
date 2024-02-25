@@ -6,12 +6,14 @@ import { MainSection } from "./sections/MainSection";
 export default function Home() {
   return (
     <main className="flex w-full justify-center">
-      <div className="relative w-full max-w-[960px]">
+      <div className="relative w-[90%] max-w-[960px]">
         <div className="absolute top-0 right-0">
           <ThemeSwitcher />
         </div>
-        <MainSection />
-        <AboutMeSection />
+        <div className="flex flex-col gap-4">
+          <MainSection />
+          <AboutMeSection />
+        </div>
       </div>
     </main>
   );
