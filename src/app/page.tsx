@@ -1,7 +1,25 @@
 "use client";
 import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
-import { AboutMeSection } from "./sections/AboutMeSection";
-import { MainSection } from "./sections/MainSection";
+import { ReactNode } from "react";
+import { Profile } from "../components/Profile";
+import { AboutMeSection } from "../components/sections/AboutMeSection";
+import { SkillsSection } from "../components/sections/SkillsSection";
+
+interface Section {
+  title: string;
+  content: ReactNode;
+}
+
+const sections: Section[] = [
+  {
+    title: "About Me",
+    content: <AboutMeSection />,
+  },
+  {
+    title: "Skills",
+    content: <SkillsSection />,
+  },
+];
 
 export default function Home() {
   return (
@@ -10,9 +28,14 @@ export default function Home() {
         <div className="absolute top-0 right-0">
           <ThemeSwitcher />
         </div>
+        <Profile />
         <div className="flex flex-col gap-4">
-          <MainSection />
-          <AboutMeSection />
+          {sections.map(({ title, content }) => (
+            <div key="title">
+              <h1>{title}</h1>
+              {content}
+            </div>
+          ))}
         </div>
       </div>
     </main>

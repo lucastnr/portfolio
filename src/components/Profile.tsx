@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function MainSection() {
+export function Profile() {
   return (
     <div className="flex flex-col md:flex-row items-center p-4 gap-4">
       <Image
