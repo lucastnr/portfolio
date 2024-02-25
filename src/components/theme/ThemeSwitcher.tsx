@@ -1,9 +1,9 @@
 "use client";
-import { useDarkMode } from "@/hooks/useDarkMode";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export function ThemeSwitcher() {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -14,10 +14,12 @@ export function ThemeSwitcher() {
 
   return (
     <>
-      <button className="btn" onClick={toggleDarkMode}>
-        aasas
+      <button
+        className="btn"
+        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      >
+        {resolvedTheme}
       </button>
-      {isDarkMode ? "Dark" : "Light"}
     </>
   );
 }
