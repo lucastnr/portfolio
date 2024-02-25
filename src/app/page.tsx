@@ -1,5 +1,14 @@
+"use client";
+import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
+
 export default function Home() {
   return (
-    <main></main>
+    <main className="flex w-full justify-center">
+      <div className="relative w-full max-w-[960px]">
+        <div className="absolute top-0 right-0">
+          <ThemeSwitcher />
+        </div>
+      </div>
+    </main>
   );
 }
