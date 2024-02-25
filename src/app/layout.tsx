@@ -1,4 +1,3 @@
-import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -17,10 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} bg-background text-txt-primary`}
-      >
-        <ThemeSwitcher />
+      <body className={`${inter.className} bg-background text-txt-primary`}>
         {children}
       </body>
     </html>
