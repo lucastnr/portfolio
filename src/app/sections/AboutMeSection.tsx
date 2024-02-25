@@ -2,6 +2,7 @@ export function AboutMeSection() {
   return (
     <div>
       <h1>About Me</h1>
+      {/* TODO: Replace for real text */}
       <p>
         Occaecat ad quis eiusmod voluptate Lorem officia mollit sint dolore. Non
         culpa Lorem ex laborum sunt laboris do ex reprehenderit ad sunt proident
