@@ -28,8 +28,8 @@ export default function Home() {
         <div className="absolute top-0 right-0">
           <ThemeSwitcher />
         </div>
-        <Profile />
         <div className="flex flex-col gap-4">
+          <Profile />
           {sections.map(({ title, content }) => (
             <div key="title">
               <h2 className="mb-2">{title}</h2>
