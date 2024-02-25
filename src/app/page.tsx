@@ -1,5 +1,6 @@
 "use client";
 import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
+import { AboutMeSection } from "./sections/AboutMeSection";
 import { MainSection } from "./sections/MainSection";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
           <ThemeSwitcher />
         </div>
         <MainSection />
+        <AboutMeSection />
       </div>
     </main>
   );
