@@ -11,7 +11,7 @@ export function MainSection() {
         alt="TODO: add alt"
       />
       <div className="text-center md:text-left md:flex-1">
-        <h1 className="font-bold text-2xl">Lucas Tenorio</h1>
+        <h1>Lucas Tenorio</h1>
         <p className="text-txt-secondary">Software Engineer</p>
         <p className="text-txt-secondary">Maceió, Brazil</p>
       </div>
