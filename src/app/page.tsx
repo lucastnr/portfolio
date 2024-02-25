@@ -1,5 +1,6 @@
 "use client";
 import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
+import { MainSection } from "./sections/MainSection";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <div className="absolute top-0 right-0">
           <ThemeSwitcher />
         </div>
+        <MainSection />
       </div>
     </main>
   );
