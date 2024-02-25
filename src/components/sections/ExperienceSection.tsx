@@ -33,10 +33,10 @@ const experiences: Experience[] = [
 
 export function ExperienceSection() {
   return (
-    <div>
+    <div className="flex flex-wrap gap-5">
       {experiences.map(({ role, company, location, from, to }) => {
         return (
-          <div key={role} className="border-t-[1px] border-txt-secondary/50 py-4">
+          <div key={role} className="py-4 border-t-[1px] border-primary inline-block">
             <h3 className="text-txt-secondary">{role}</h3>
             <div className="flex flex-row gap-4">
               <p>
