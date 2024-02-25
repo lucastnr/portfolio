@@ -32,7 +32,7 @@ export default function Home() {
         <div className="flex flex-col gap-4">
           {sections.map(({ title, content }) => (
             <div key="title">
-              <h1>{title}</h1>
+              <h2>{title}</h2>
               {content}
             </div>
           ))}

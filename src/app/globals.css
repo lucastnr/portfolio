@@ -16,6 +16,6 @@
   --color-primary: #362938;
 }
 
-h1 {
+h2 {
   @apply text-2xl font-bold;
 }
