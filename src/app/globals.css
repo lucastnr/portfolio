@@ -5,11 +5,11 @@
 :root {
   --color-background: #F0F2F5;
   --color-txt-primary: #121417;
-  --colort-txt-secondary: #637587;
+  --color-txt-secondary: #637587;
 }
 
 :root[class~="dark"] {
   --color-background: #171217;
   --color-txt-primary: #FFFFFF;
-  --colort-txt-secondary: #B59EB8;
+  --color-txt-secondary: #B59EB8;
 }
