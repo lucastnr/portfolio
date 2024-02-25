@@ -1,4 +1,5 @@
 "use client";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
 import { ReactNode } from "react";
 import { Profile } from "../components/Profile";
@@ -18,6 +19,10 @@ const sections: Section[] = [
   {
     title: "Skills",
     content: <SkillsSection />,
+  },
+  {
+    title: "Experience",
+    content: <ExperienceSection />,
   },
 ];
 
