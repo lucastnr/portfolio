@@ -6,7 +6,7 @@
   --color-background: #FFFFFF;
   --color-txt-primary: #121417;
   --color-txt-secondary: #637587;
-  --color-primary: #F0F2F5;
+  --color-primary: #E8EBEF;
 }
 
 :root[class~="dark"] {
