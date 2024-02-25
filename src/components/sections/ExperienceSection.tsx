@@ -11,7 +11,7 @@ const experiences: Experience[] = [
   {
     role: "Frontend Developer",
     from: "2020",
-    to: "2021",
+    to: "Present",
     company: "Acme Inc.",
     location: "Mountain View, CA",
   },
