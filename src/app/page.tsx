@@ -33,7 +33,7 @@ export default function Home() {
         <div className="absolute top-0 right-0">
           <ThemeSwitcher />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-10">
           <Profile />
           {sections.map(({ title, content }) => (
             <div key="title">
