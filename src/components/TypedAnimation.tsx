@@ -9,7 +9,7 @@ interface TypedAnimationProps extends HTMLProps<HTMLParagraphElement> {
 
 export function TypedAnimation({
   children = "",
-  ms = 50,
+  ms = 45,
   ...props
 }: TypedAnimationProps) {
   const [content, setContent] = useState("");
@@ -53,12 +53,12 @@ export function TypedAnimation({
               : false
           }
           transition={{
-            duration: 0.65,
+            duration: 0.6,
             repeatDelay: 0.3,
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="inline select-none tracking-tighter ml-[-5px]"
+          className="inline select-none tracking-tighter ml-[-0.2em]"
         >
           |
         </motion.p>

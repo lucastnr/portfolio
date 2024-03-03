@@ -2,7 +2,6 @@
 
 import { TypedAnimation } from "@/components/TypedAnimation";
 
-
 export default function Home() {
   return (
     <main>
