@@ -58,7 +58,7 @@ export function TypedAnimation({
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="inline select-none tracking-tighter ml-[-0.2em]"
+          className="inline select-none tracking-tighter ml-[-0.2em] font-extralight"
         >
           |
         </motion.p>
