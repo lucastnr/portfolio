@@ -8,7 +8,7 @@ interface TypedAnimationProps extends HTMLProps<HTMLParagraphElement> {
 }
 
 export function TypedAnimation({
-  children,
+  children = "",
   ms = 50,
   ...props
 }: TypedAnimationProps) {
@@ -22,7 +22,8 @@ export function TypedAnimation({
         return prev;
       }
 
-      return children.slice(0, prev.length + 1);
+      const nextIndex = prev.length;
+      return prev + children.charAt(nextIndex);
     });
   }
 
@@ -35,27 +36,33 @@ export function TypedAnimation({
   if (!content) return <p></p>;
 
   return (
-    <p {...props}>
-      {content}
-      <motion.p
-        initial={{ opacity: 1 }}
-        animate={
-          blinkCursor
-            ? {
-                opacity: [1, 0, 1],
-              }
-            : false
-        }
-        transition={{
-          duration: 0.65,
-          repeatDelay: 0.3,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        className="inline select-none tracking-tighter ml-[-5px]"
-      >
-        |
-      </motion.p>
-    </p>
+    <div className={`${props.className} relative`}>
+      {/* This one is a clone, to make sure the size won't change while typing */}
+      <p {...props} className="opacity-0 select-none">
+        {children}
+      </p>
+      <p {...props} className="absolute top-0 left-0">
+        {content}
+        <motion.p
+          initial={{ opacity: 1 }}
+          animate={
+            blinkCursor
+              ? {
+                  opacity: [1, 0, 1],
+                }
+              : false
+          }
+          transition={{
+            duration: 0.65,
+            repeatDelay: 0.3,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="inline select-none tracking-tighter ml-[-5px]"
+        >
+          |
+        </motion.p>
+      </p>
+    </div>
   );
 }
