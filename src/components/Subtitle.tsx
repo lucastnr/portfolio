@@ -38,6 +38,7 @@ export function Subtitle() {
 
   return (
     <TypedAnimation
+      delay={0.5}
       className="font-light mt-2 text-lg text-txt-secondary"
       onComplete={onComplete}
     >

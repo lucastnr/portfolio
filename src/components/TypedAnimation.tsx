@@ -6,6 +6,7 @@ interface TypedAnimationProps extends HTMLProps<HTMLParagraphElement> {
   children: string;
   onComplete?: () => void;
   ms?: number;
+  delay?: number;
 }
 
 export default function CursorBlinker({ blink }: { blink: boolean }) {
@@ -35,6 +36,7 @@ export default function CursorBlinker({ blink }: { blink: boolean }) {
 export function TypedAnimation({
   children = "",
   ms = 45,
+  delay = 0,
   onComplete,
   ...props
 }: TypedAnimationProps) {
@@ -50,6 +52,7 @@ export function TypedAnimation({
   useEffect(() => {
     const controls = animate(count, children.length, {
       type: "tween",
+      delay,
       duration: (children.length * ms) / 1000,
       onComplete: () => {
         onComplete?.();
