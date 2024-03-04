@@ -32,7 +32,6 @@ export function Background() {
       }}
       style={{
         width: "100%",
-        maxWidth: "2000px",
         height: "100%",
       }}
     >
