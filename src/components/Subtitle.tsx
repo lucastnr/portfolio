@@ -5,7 +5,7 @@ import { TypedAnimation } from "./TypedAnimation";
 const words = [
   "companies.",
   "startups.",
-  "projects.",
+  "fun.",
   "clients.",
   "teams.",
   "people.",
