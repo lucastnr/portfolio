@@ -4,12 +4,13 @@ import { HTMLProps, useEffect, useState } from "react";
 
 interface TypedAnimationProps extends HTMLProps<HTMLParagraphElement> {
   children: string;
+  onComplete?: () => void;
   ms?: number;
 }
 
 export default function CursorBlinker({ blink }: { blink: boolean }) {
   return (
-    <motion.p
+    <motion.span
       initial={{ opacity: 1 }}
       animate={
         blink
@@ -24,16 +25,17 @@ export default function CursorBlinker({ blink }: { blink: boolean }) {
         repeat: Infinity,
         repeatType: "reverse",
       }}
-      className="inline select-none tracking-tighter ml-[-0.2em] font-extralight"
+      className="select-none tracking-tighter ml-[-0.2em] font-extralight"
     >
       |
-    </motion.p>
+    </motion.span>
   );
 }
 
 export function TypedAnimation({
   children = "",
   ms = 45,
+  onComplete,
   ...props
 }: TypedAnimationProps) {
   const [mounted, setMounted] = useState(false);
@@ -49,7 +51,10 @@ export function TypedAnimation({
     const controls = animate(count, children.length, {
       type: "tween",
       duration: (children.length * ms) / 1000,
-      onComplete: () => setBlinkCursor(true),
+      onComplete: () => {
+        onComplete?.();
+        setBlinkCursor(true);
+      },
     });
 
     return controls.stop;
