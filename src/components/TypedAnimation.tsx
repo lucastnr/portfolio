@@ -64,7 +64,7 @@ export function TypedAnimation({
   return (
     <div className={`${props.className} relative`}>
       {/* This one is a clone, to make sure the size won't change while typing */}
-      <p {...props} className="opacity-0 select-none">
+      <p {...props} className="opacity-0 select-none mr-[0.3em]">
         {children}
       </p>
       <p {...props} className="absolute top-0 left-0">
