@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { HTMLProps, useEffect, useState } from "react";
 
 interface TypedAnimationProps extends HTMLProps<HTMLParagraphElement> {
@@ -7,33 +7,59 @@ interface TypedAnimationProps extends HTMLProps<HTMLParagraphElement> {
   ms?: number;
 }
 
+export default function CursorBlinker({ blink }: { blink: boolean }) {
+  return (
+    <motion.p
+      initial={{ opacity: 1 }}
+      animate={
+        blink
+          ? {
+              opacity: [1, 0, 1],
+            }
+          : false
+      }
+      transition={{
+        duration: 0.6,
+        repeatDelay: 0.3,
+        repeat: Infinity,
+        repeatType: "reverse",
+      }}
+      className="inline select-none tracking-tighter ml-[-0.2em] font-extralight"
+    >
+      |
+    </motion.p>
+  );
+}
+
 export function TypedAnimation({
   children = "",
   ms = 45,
   ...props
 }: TypedAnimationProps) {
-  const [content, setContent] = useState("");
+  const [mounted, setMounted] = useState(false);
+
   const [blinkCursor, setBlinkCursor] = useState(false);
-
-  function increaseContent() {
-    setContent((prev) => {
-      if (prev.length === children.length) {
-        setBlinkCursor(true);
-        return prev;
-      }
-
-      const nextIndex = prev.length;
-      return prev + children.charAt(nextIndex);
-    });
-  }
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (value) => Math.round(value));
+  const displayText = useTransform(rounded, (latest) =>
+    children.slice(0, latest)
+  );
 
   useEffect(() => {
-    const interval = setInterval(increaseContent, ms);
+    const controls = animate(count, children.length, {
+      type: "tween",
+      duration: (children.length * ms) / 1000,
+      onComplete: () => setBlinkCursor(true),
+    });
 
-    return () => clearInterval(interval);
+    return controls.stop;
   }, []);
 
-  if (!content) return <p></p>;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return;
 
   return (
     <div className={`${props.className} relative`}>
@@ -42,26 +68,8 @@ export function TypedAnimation({
         {children}
       </p>
       <p {...props} className="absolute top-0 left-0">
-        {content}
-        <motion.p
-          initial={{ opacity: 1 }}
-          animate={
-            blinkCursor
-              ? {
-                  opacity: [1, 0, 1],
-                }
-              : false
-          }
-          transition={{
-            duration: 0.6,
-            repeatDelay: 0.3,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className="inline select-none tracking-tighter ml-[-0.2em] font-extralight"
-        >
-          |
-        </motion.p>
+        <motion.span>{displayText}</motion.span>
+        <CursorBlinker blink={blinkCursor} />
       </p>
     </div>
   );
