@@ -19,6 +19,24 @@ function Sphere() {
   );
 }
 
+function Scene() {
+  return (
+    <>
+      <Sphere />
+      <pointLight intensity={1} position={[1.8, 1, 4]} />
+    </>
+  );
+}
+
+function Effects() {
+  return (
+    <EffectComposer>
+      <Noise opacity={1} blendFunction={BlendFunction.OVERLAY} />
+      <HueSaturation saturation={0.3} />
+    </EffectComposer>
+  );
+}
+
 export function Background() {
   return (
     <Canvas
@@ -31,12 +49,8 @@ export function Background() {
       }}
     >
       <Suspense fallback={null}>
-        <Sphere />
-        <pointLight intensity={1} position={[1.8, 1, 4]} />
-        <EffectComposer>
-          <Noise opacity={0.16} blendFunction={BlendFunction.ADD} />
-          <HueSaturation saturation={0.2} />
-        </EffectComposer>
+        <Scene />
+        <Effects />
       </Suspense>
     </Canvas>
   );
