@@ -36,7 +36,7 @@ export default function CursorBlinker({ blink }: { blink: boolean }) {
 export function TypedAnimation({
   children = "",
   ms = 45,
-  delay = 0,
+  delay = 0.5,
   onComplete,
   ...props
 }: TypedAnimationProps) {
