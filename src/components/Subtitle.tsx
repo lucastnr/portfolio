@@ -48,7 +48,7 @@ export function Subtitle() {
       className="font-light mt-2 text-lg text-txt-secondary"
       onComplete={onComplete}
     >
-      {`A talented software developer with over ${yearsOfExperience} years of experience building
+      {`A talented full stack software developer with over ${yearsOfExperience} years of experience building
       production-ready products for ${word}`}
     </TypedAnimation>
   );
