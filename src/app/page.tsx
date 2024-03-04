@@ -1,5 +1,3 @@
-"use client";
-
 import { Background } from "@/components/Background";
 import { TypedAnimation } from "@/components/TypedAnimation";
 
