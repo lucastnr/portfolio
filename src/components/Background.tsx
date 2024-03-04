@@ -1,5 +1,5 @@
 "use client";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import {
   EffectComposer,
   HueSaturation,
@@ -8,13 +8,8 @@ import {
 import { BlendFunction } from "postprocessing";
 import { Suspense, useRef } from "react";
 
-function Box() {
+function Sphere() {
   const meshRef = useRef<any>(null!);
-
-  useFrame((state, delta) => {
-    meshRef.current.rotation.z += 0.01;
-    meshRef.current.rotation.x += 0.01;
-  });
 
   return (
     <mesh ref={meshRef} position={[-1.6, -1.4, -2]}>
@@ -36,11 +31,11 @@ export function Background() {
       }}
     >
       <Suspense fallback={null}>
-        <Box />
-        <pointLight intensity={1.3} position={[3, 1, 4]} />
+        <Sphere />
+        <pointLight intensity={1} position={[1.8, 1, 4]} />
         <EffectComposer>
-          <Noise opacity={0.3} blendFunction={BlendFunction.ADD} />
-          <HueSaturation hue={0.1} saturation={0.3} />
+          <Noise opacity={0.16} blendFunction={BlendFunction.ADD} />
+          <HueSaturation saturation={0.2} />
         </EffectComposer>
       </Suspense>
     </Canvas>
