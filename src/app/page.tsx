@@ -13,8 +13,8 @@ export default function Home() {
             {"<Lucas Tenorio/>"}
           </TypedAnimation>
           <TypedAnimation className="font-light mt-2 text-lg" ms={40}>
-            A talented Software Developer with 4+ years of experience building
-            production-ready products to companies.
+            A talented software developer with over 4 years of experience
+            building production-ready products for companies.
           </TypedAnimation>
         </div>
       </div>
