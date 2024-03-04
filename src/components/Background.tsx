@@ -5,8 +5,9 @@ import {
   HueSaturation,
   Noise,
 } from "@react-three/postprocessing";
+import { animate, useMotionValue } from "framer-motion";
 import { BlendFunction } from "postprocessing";
-import { Suspense, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 
 function Sphere() {
   const meshRef = useRef<any>(null!);
@@ -20,10 +21,33 @@ function Sphere() {
 }
 
 function Scene() {
+  const lightIntensityMotion = useMotionValue(1.1);
+  const [lightIntensity, setLightIntensity] = useState(
+    lightIntensityMotion.get()
+  );
+
+  useEffect(() => {
+    const unsubscribe = lightIntensityMotion.on("change", setLightIntensity);
+
+    const control = animate(lightIntensityMotion, 0.75, {
+      duration: 6,
+      repeat: Infinity,
+      repeatType: "reverse",
+      ease: "easeInOut",
+    });
+
+    return () => {
+      control.stop();
+      unsubscribe();
+    };
+  }, []);
+
+  console.log({ lightIntensity });
+
   return (
     <>
       <Sphere />
-      <pointLight intensity={1} position={[1.8, 1, 4]} />
+      <pointLight intensity={lightIntensity} position={[1.8, 1, 4]} />
     </>
   );
 }
@@ -31,7 +55,7 @@ function Scene() {
 function Effects() {
   return (
     <EffectComposer>
-      <Noise opacity={1} blendFunction={BlendFunction.OVERLAY} />
+      <Noise opacity={0.7} blendFunction={BlendFunction.OVERLAY} />
       <HueSaturation saturation={0.3} />
     </EffectComposer>
   );
