@@ -8,7 +8,7 @@ export default function Home() {
         <div className="absolute w-screen min-w-[700px] max-w-[2200px] h-[100%] right-0 xl:left-0">
           <Background />
         </div>
-        <div className="w-[80%] text-txt-secondary mb-24">
+        <div className="w-[80%] xl:w-[1200px] text-txt-secondary mb-24">
           <TypedAnimation className="font-medium text-4xl">
             {"<Lucas Tenorio/>"}
           </TypedAnimation>
