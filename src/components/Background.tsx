@@ -29,8 +29,8 @@ function Scene() {
   useEffect(() => {
     const unsubscribe = lightIntensityMotion.on("change", setLightIntensity);
 
-    const control = animate(lightIntensityMotion, 0.75, {
-      duration: 6,
+    const control = animate(lightIntensityMotion, 0.7, {
+      duration: 5,
       repeat: Infinity,
       repeatType: "reverse",
       ease: "easeInOut",
