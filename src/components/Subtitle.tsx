@@ -11,6 +11,13 @@ const words = [
   "people.",
 ];
 
+function getYearDiff(date: Date) {
+  const diff = date.getTime() - new Date().getTime();
+  return Math.floor(Math.abs(diff / (1000 * 60 * 60 * 24 * 365)));
+}
+
+const yearsOfExperience = getYearDiff(new Date(2019, 11, 1));
+
 export function Subtitle() {
   const [wordIndex, setIndex] = useState(0);
   const [letterCount, setLetterCount] = useState(words[wordIndex].length);
@@ -41,7 +48,7 @@ export function Subtitle() {
       className="font-light mt-2 text-lg text-txt-secondary"
       onComplete={onComplete}
     >
-      {`A talented software developer with over 4 years of experience building
+      {`A talented software developer with over ${yearsOfExperience} years of experience building
       production-ready products for ${word}`}
     </TypedAnimation>
   );
