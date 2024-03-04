@@ -13,7 +13,9 @@ export default function Home() {
         <div className="w-[80%] xl:w-[1210px]mb-24">
           <Title />
           <Subtitle />
-          <Links />
+          <div className="pt-10">
+            <Links />
+          </div>
         </div>
       </div>
     </main>
