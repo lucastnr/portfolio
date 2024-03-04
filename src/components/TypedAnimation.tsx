@@ -75,8 +75,8 @@ export function TypedAnimation({
       <p {...props} className="opacity-0 select-none mr-[0.3em]">
         {children}
       </p>
-      <p {...props} className="absolute top-0 left-0">
-        <motion.span>{displayText}</motion.span>
+      <p {...props} className=" text-current absolute top-0 left-0">
+        <motion.span className="text-current">{displayText}</motion.span>
         <CursorBlinker blink={blinkCursor} />
       </p>
     </div>
