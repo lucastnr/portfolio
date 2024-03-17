@@ -42,8 +42,6 @@ function Scene() {
     };
   }, []);
 
-  console.log({ lightIntensity });
-
   return (
     <>
       <Sphere />
