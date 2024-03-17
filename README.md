@@ -1,5 +1,7 @@
-## Hi! I'm Lucas Tenorio
+## Hi! I'm Lucas Tenorio, a talented software engineer and a passionate developer.
 
-Welcome to my personal website!
+Welcome to my personal website repository. 
 
-Feel free to check it on [lucastenorio.com](https://lucastenorio.com)
+This is still a work in progress, but feel free to check it out and give me some feedback.
+
+[lucastenorio.com](https://lucastenorio.com)
