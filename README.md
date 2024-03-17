@@ -1,3 +1,4 @@
+![The website background theme](background.png)
 ## Hi! I'm Lucas Tenorio, a talented software engineer and a passionate developer.
 
 Welcome to my personal website repository. 
